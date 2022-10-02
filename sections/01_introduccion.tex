@@ -1,0 +1,51 @@
+\chapter{Introducción}\label{cap:introduccion}
+\section{Introducción} 
+Cada vez es mayor el peso que la tecnología esta teniendo en el día a día de la sociedad. La interacción con dispositivos tecnológicos está convirtiéndose poco a poco en algo cotidiano. Son cada vez mas las tareas que pueden ser suplidas por dispositivos electrónicos que ayudan a que tareas del día a día, incluso labores más peligrosas puedan desarrollarse de una forma segura y eficiente.
+
+Uno de los sectores en auge en esta última década es el sector de los sistemas embebidos y la capacidad de procesamiento de estos mismos, es cada vez mayor la capacidad de dotar de inteligencia a dispositivos cada vez con dimensiones mas reducidas pero con una capacidad de rendimiento que crece de forma exponencial.
+
+El proyecto que se describirá a lo largo de la memoria se encarga de dotar de inteligencia artificial un robot con capacidad de teleoperación y reconocimiento del entorno en el cual se esté operando este mismo. Para poder conseguir esto, se ha tenido que poner a punto un robot que sea capaz de moverse y además sea capaz de procesar y reconocer los objetos de su entorno procesando esta información en tiempo real.
+
+Para conseguir esto se ha dotado al robot de visión artificial, la cual recogerá la información necesaria de una cámara incorporada en el robot y que se complementará con otros sensores que ayudaran al dispositivo móvil a poder moverse de una forma autónoma evitando colisiones.
+
+
+\section{Motivación del proyecto} 
+La motivación del proyecto surge con el auge del desarrollo de robots móviles junto con el actual desarrollo de dispositivos dotados de inteligencia artificial o ''capacidad de aprendizaje'' en estas máquinas. 
+
+Con el objetivo de hacer mas accesible el proyecto a toda la comunidad se ha tratado de utilizar hardware abierto, así como intentar utilizar plataformas de software open source.
+
+tras recopilar información sobre el funcionamiento de diferentes tipos de robots móviles, vehículos auto-guiados y diversos dispositivos de conducción autónoma, se ha tratado de comprender y estudiar su funcionamiento interno, desde el desarrollo de hardware de cada uno de los robots hasta comprender la estructura de software que cada un de los diferentes dispositivos puede contener. De este modo, una vez estudiadas las diferentes alternativas que se encuentran actualmente accesibles en el mercado, se ha tratado de proporcionar una solución accesible, que cuente con cierta escalabilidad y que sirva como plataforma de desarrollo para demás desarrolladores. 
+
+Para poder desarrollar ciertas soluciones para diferentes tipos de robots, siempre se han de tener en cuenta las diferentes versiones de todas y cada una de las dependencias que el programa a desarrollar puede tener. También es cierto, que hoy en día existen diversas tecnologías que permiten encapsular todas aquellas dependencias en un entorno estable para que todos los desarrolladores de un mismo proyecto cuenten con las mismas herramientas y programas, actualizadas a la misma versión, de esta forma se eliminan problemas de retrocompatibilidad entre diferentes desarrolladores y los prototipos a desarrollar.
+
+\section{Objetivo del proyecto} 
+
+El objetivo del proyecto es dotar a los usuarios desarrolladores de un entorno encapsulado con todas las herramientas necesarias para poder llevar a cabo el desarrollo programas y nuevas funcionalidades en el marco del desarrollo de robots móviles.
+
+Para ello, la plataforma de desarrollo debe de ser estable y permitir un esquema multiusuario, donde cada uno de los desarrolladores pueda llevar a cabo sus labores con total comodidad y sin conflictos con las versiones desarrolladas por otros usuarios.
+
+Dado que el objetivo principal es implantar un entorno estable y para usar por diferentes usuarios, debe de ser de fácil acceso y fácil instalación para todos los usuarios.
+ \section{Marco teórico}
+ 
+El robot utilizado para el proyecto alberga diferentes bloques de funcionamiento o diferentes secciones que trabajaban de forma paralela para poder conformar el proyecto. Es por ello que se debe tener claro desde el inicio del proyecto la forma en la que se va a establecer la comunicación entre los diferentes nodos del proyecto o las diferentes partes que albergan diferente hardware.
+
+Dado el el dispositivo que se quiere desarrollar es un robot, se ha optado por utilizar un sistema operativo de software abierto llamado ROS (Robot Operative System).
+
+Dicho sistema operativo se ejecuta sobre una CPU bajo un sistema Linux basado en una distribución Debian. 
+
+El proyecto a desarrollar se divide en dos grandes bloques:
+
+\begin{itemize}
+\item Alto nivel : Lo forman los dispositivos que albergarán las lógicas de navegación así como la parte mas abstraída del Hardware. Prácticamente toda la inteligencia del robot estará contenida en este bloque. Para poder desarrollar el alto nivel se han utilizado dos Raspberrys, las cuales ejecutarán la lógica de funcionamiento del robot así como el "cerebro" del robot ejecutando el framework ROS. 
+
+El el alto nivel también se encuentran diferentes sensores cuya información necesita ser procesada por una CPU y que son utilizados para poder ejercer una navegación más fina así como poder almacenar un mapa de los diferentes entornos por los que ha estado navegando.
+
+
+\item Bajo nivel : El bajo nivel contiene la lógica necesaria para poder realizar la gestión entre los sensores y actuadores y la lógica que cada uno de estos necesita para su correcto funcionamiento. El bajo nivel esta ligado al hardware y alberga la parte de programación que gestiona de una forma mas directa la mayoría de sensores y de actuadores. 
+\end{itemize}
+
+El bajo nivel lo conforma entre otros, el microcontrolador de Arduino utilizado para el proyecto.
+
+Para poder realizar la detección de objetos y personas, se empleará un modelo de inteligencia artificial. Se realizará una comparativa entre los diferentes tipos de modelos y tipologías a la hora de realizar una detección de objetos.
+
+El procesado de toda la información que se lleve a cabo para poder procesar la imagen adquirida por la cámara así como la información que servirá como input al modelo de inteligencia artificial, se procesará en el mismo robot. A esta técnica se le conoce como "edge computing".
